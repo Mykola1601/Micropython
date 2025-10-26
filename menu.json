@@ -1,0 +1,32 @@
+{
+  "Main Menu": [
+    {"label": "Food", "next": "Food"},
+    {"label": "Settings", "next": "Settings"},
+    {"label": "Drinks", "next": "Drinks"},
+    {"label": "TICCS", "next": "TICCS"}
+  ],
+  "Food": [
+    {"label": "Soup", "action": "show_message", "arg": "Soup"},
+    {"label": "Dumplings", "action": "show_message", "arg": "Dumplings"},
+    {"label": "Pizza", "action": "show_message", "arg": "Pizza"},
+    {"label": "Back", "go_back": true}
+  ],
+  "Drinks": [
+    {"label": "Coffee", "action": "show_message", "arg": "Coffee"},
+    {"label": "Tea", "action": "show_message", "arg": "Tea"},
+    {"label": "Juice", "action": "show_message", "arg": "Juice"},
+    {"label": "Back", "go_back": true}
+  ],
+  "TICCS": [
+    {"label": "Zones", "action": "show_message", "arg": "Zones"},
+    {"label": "Sectors", "action": "show_message", "arg": "Sectors"},
+    {"label": "Routes", "action": "show_message", "arg": "Routes"},
+    {"label": "Back", "go_back": true}
+  ],
+  "Settings": [
+    {"label": "Sensors", "action": "show_sensor_data"},
+    {"label": "Input Number", "action": "input_number"},
+    {"label": "Mode", "options": ["A", "B", "C"]},
+    {"label": "Back", "go_back": true}
+  ]
+}
