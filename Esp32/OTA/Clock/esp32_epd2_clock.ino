@@ -1,3 +1,5 @@
+//display epd 128x296 2.9' 68x30mm
+
 #include <GxEPD2_BW.h>
 //#include <Fonts/Picopixel.h>
 #include <Fonts/FreeSansBold56pt7b.h>
@@ -345,8 +347,8 @@ bool isNight() {
     struct tm tm;
     localtime_r(&now, &tm);
 
-    // нічний режим з 23:00 до 06:00
-    if (tm.tm_hour >= 19 || tm.tm_hour < 7) return true;
+    // нічний режим з 22:00 до 07:00
+    if (tm.tm_hour >= 22 || tm.tm_hour < 7) return true;
     return false;
 }
 
@@ -460,7 +462,7 @@ void loop()
 
 
 // ---- синхронізація часу кожні 12 годин ----
-if ((tm.tm_min == 30) && (tm.tm_hour % 12 == 0) && (lastSyncHour != tm.tm_hour)) {
+if ((tm.tm_min == 45) && (tm.tm_hour % 12 == 0) && (lastSyncHour != tm.tm_hour)) {
     syncTime();
     lastSyncHour = tm.tm_hour;
 }
@@ -468,7 +470,7 @@ if ((tm.tm_min == 30) && (tm.tm_hour % 12 == 0) && (lastSyncHour != tm.tm_hour))
 
     
       if (isNight()) {
-        // ---- Повне оновлення кожні 2 години на 30-й хвилині ----
+        // ---- Повне оновлення кожні 4 години на 30-й хвилині ----
         if ((tm.tm_min == 30) && (tm.tm_hour % 4 == 0))
         {
             fullRefreshTime(tm.tm_hour, tm.tm_min);
@@ -477,22 +479,17 @@ if ((tm.tm_min == 30) && (tm.tm_hour % 12 == 0) && (lastSyncHour != tm.tm_hour))
         {
             showTimeCenter(tm.tm_hour, tm.tm_min);
         }
-    
-        // ---- OTA кожні 10 годин на 00 хвилин ----
-        if ((tm.tm_min == 0) && (tm.tm_hour % 10 == 0))
-        {
-            checkForOTA();
-        }
-    
+        
+        // ---- статус ----
+        showStatus("Night mode");
+        
         // ---- спати 60x15 секунд ----
         esp_sleep_enable_timer_wakeup(900ULL * 1000000ULL);
         esp_light_sleep_start();
-    
-        // ---- очистка статусу ----
-        showStatus("Night mode");
+
         }
         
-     else {
+      else {
         // ---- Повне оновлення кожні 2 години на 30-й хвилині ----
         if ((tm.tm_min == 30) && (tm.tm_hour % 2 == 0))
         {
@@ -503,12 +500,6 @@ if ((tm.tm_min == 30) && (tm.tm_hour % 12 == 0) && (lastSyncHour != tm.tm_hour))
             showTimeCenter(tm.tm_hour, tm.tm_min);
         }
     
-        // ---- OTA кожні 8 годин на 00 хвилин ----
-        if ((tm.tm_min == 0) && (tm.tm_hour % 10 == 0))
-        {
-            checkForOTA();
-        }
-    
         // ---- спати 60 секунд ----
         esp_sleep_enable_timer_wakeup(60ULL * 1000000ULL);
         esp_light_sleep_start();
@@ -517,4 +508,14 @@ if ((tm.tm_min == 30) && (tm.tm_hour % 12 == 0) && (lastSyncHour != tm.tm_hour))
         showStatus(" ");
       }
 
+
+        // ---- OTA кожні 10 годин на 00 хвилин ----
+        if ((tm.tm_min == 15) && (tm.tm_hour % 10 == 0))
+        {
+            checkForOTA();
+        }
+    
 }
+
+
+
