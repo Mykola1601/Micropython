@@ -1,8 +1,6 @@
 {
-  "version": "1.2",
+  "version": "1.4",
   "files": {
-    "main.py": "https://github.com/Mykola1601/Micropython/tree/main/Esp32/OTA/Clock/main.py",
-    "wifi.py": "https://github.com/Mykola1601/Micropython/tree/main/Esp32/OTA/Clock/wifi.py",
-    "ota.py": "https://github.com/Mykola1601/Micropython/tree/main/Esp32/OTA/Clock/ota.py"
+    "main.py": "https://github.com/Mykola1601/Micropython/tree/main/Esp32/OTA/Clock/temp.py"
   }
 }
