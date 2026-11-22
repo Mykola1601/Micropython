@@ -1,8 +1,8 @@
 {
-  "version": "1.3",
+  "version": "1.2",
   "files": {
-    "main.py": "http://192.168.4.2:5000/files/main.py",
-    "wifi.py": "http://192.168.4.2:5000/files/wifi.py",
-    "ota.py": "http://192.168.4.2:5000/files/ota.py"
+    "main.py": "https://github.com/Mykola1601/Micropython/tree/main/Esp32/OTA/Clock/main.py",
+    "wifi.py": "https://github.com/Mykola1601/Micropython/tree/main/Esp32/OTA/Clock/wifi.py",
+    "ota.py": "https://github.com/Mykola1601/Micropython/tree/main/Esp32/OTA/Clock/ota.py"
   }
 }
