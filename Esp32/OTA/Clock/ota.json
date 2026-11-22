@@ -1,6 +1,6 @@
 {
   "version": "1.4",
   "files": {
-    "main.py": "https://github.com/Mykola1601/Micropython/tree/main/Esp32/OTA/Clock/temp.py"
+    "temp.py": "https://raw.githubusercontent.com/Mykola1601/Micropython/main/Esp32/OTA/Clock/temp.py"
   }
 }
